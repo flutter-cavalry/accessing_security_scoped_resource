@@ -27,4 +27,18 @@ class MethodChannelAccessingSecurityScopedResource
         'stopAccessingSecurityScopedResourceWithFilePath',
         {'filePath': filePath});
   }
+
+  @override
+  Future<bool> startAccessingSecurityScopedResourceWithURL(Uri url) async {
+    return (await methodChannel.invokeMethod<bool>(
+            'startAccessingSecurityScopedResourceWithURL',
+            {'url': url.toString()})) ??
+        false;
+  }
+
+  @override
+  Future<void> stopAccessingSecurityScopedResourceWithURL(Uri url) async {
+    await methodChannel.invokeMethod<bool>(
+        'stopAccessingSecurityScopedResourceWithURL', {'url': url.toString()});
+  }
 }

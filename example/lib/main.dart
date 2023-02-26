@@ -40,11 +40,23 @@ class _MyAppState extends State<MyApp> {
               _sep(),
               OutlinedButton(
                   onPressed: _dir != null ? _start : null,
-                  child: const Text('startAccessingSecurityScopedResource')),
+                  child:
+                      const Text('startAccessingSecurityScopedResource (URL)')),
               _sep(),
               OutlinedButton(
                   onPressed: _dir != null ? _stop : null,
-                  child: const Text('stopAccessingSecurityScopedResource')),
+                  child:
+                      const Text('stopAccessingSecurityScopedResource (URL)')),
+              _sep(),
+              OutlinedButton(
+                  onPressed: _dir != null ? _startPath : null,
+                  child: const Text(
+                      'startAccessingSecurityScopedResource (FilePath)')),
+              _sep(),
+              OutlinedButton(
+                  onPressed: _dir != null ? _stopPath : null,
+                  child: const Text(
+                      'stopAccessingSecurityScopedResource (FilePath)')),
               _sep(),
               Text(_output)
             ],
@@ -81,13 +93,35 @@ class _MyAppState extends State<MyApp> {
       return;
     }
     final hasAccess = await _accessingSecurityScopedResourcePlugin
-        .startAccessingSecurityScopedResourceWithFilePath(_dir!);
+        .startAccessingSecurityScopedResourceWithURL(Uri.directory(_dir!));
     setState(() {
       _output = 'Has access: $hasAccess';
     });
   }
 
   void _stop() {
+    if (_dir == null) {
+      return;
+    }
+    _accessingSecurityScopedResourcePlugin
+        .stopAccessingSecurityScopedResourceWithURL(Uri.directory(_dir!));
+    setState(() {
+      _output = '';
+    });
+  }
+
+  void _startPath() async {
+    if (_dir == null) {
+      return;
+    }
+    final hasAccess = await _accessingSecurityScopedResourcePlugin
+        .startAccessingSecurityScopedResourceWithFilePath(_dir!);
+    setState(() {
+      _output = 'Has access: $hasAccess';
+    });
+  }
+
+  void _stopPath() {
     if (_dir == null) {
       return;
     }

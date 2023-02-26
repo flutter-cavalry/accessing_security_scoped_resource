@@ -36,4 +36,14 @@ abstract class AccessingSecurityScopedResourcePlatform
     throw UnimplementedError(
         'stopAccessingSecurityScopedResourceWithFilePath() has not been implemented.');
   }
+
+  Future<bool> startAccessingSecurityScopedResourceWithURL(Uri url) async {
+    throw UnimplementedError(
+        'startAccessingSecurityScopedResourceWithURL() has not been implemented.');
+  }
+
+  Future<void> stopAccessingSecurityScopedResourceWithURL(Uri url) async {
+    throw UnimplementedError(
+        'stopAccessingSecurityScopedResourceWithURL() has not been implemented.');
+  }
 }

@@ -2,7 +2,7 @@
 
 # accessing_security_scoped_resource
 
-Call `startAccessingSecurityScopedResource` and `stopAccessingSecurityScopedResource` in Flutter.
+Call iOS / macOS `startAccessingSecurityScopedResource` and `stopAccessingSecurityScopedResource` in Flutter.
 
 ## Usage
 
@@ -17,3 +17,8 @@ final hasAccess = await _plugin.startAccessingSecurityScopedResourceWithFilePath
 // Release access.
 _plugin.stopAccessingSecurityScopedResourceWithFilePath(folderPath);
 ```
+
+URL-based APIs:
+
+- `startAccessingSecurityScopedResourceWithURL`
+- `stopAccessingSecurityScopedResourceWithURL`

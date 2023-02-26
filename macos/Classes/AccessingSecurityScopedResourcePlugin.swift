@@ -24,12 +24,32 @@ public class AccessingSecurityScopedResourcePlugin: NSObject, FlutterPlugin {
       let hasAccess = fileURL.startAccessingSecurityScopedResource()
       result(hasAccess)
       
+    case "startAccessingSecurityScopedResourceWithURL":
+      guard let url = URL(string: args["url"] as! String) else {
+        DispatchQueue.main.async {
+          result(FlutterError(code: "ArgError", message: "Invalid arguments", details: nil))
+        }
+        return
+      }
+      let hasAccess = url.startAccessingSecurityScopedResource()
+      result(hasAccess)
+      
     case "stopAccessingSecurityScopedResourceWithFilePath":
       // Arguments are enforced on dart side.
       let filePath = args["filePath"] as! String
       
       let fileURL = URL(fileURLWithPath: filePath)
       fileURL.stopAccessingSecurityScopedResource()
+      result(nil)
+      
+    case "stopAccessingSecurityScopedResourceWithURL":
+      guard let url = URL(string: args["url"] as! String) else {
+        DispatchQueue.main.async {
+          result(FlutterError(code: "ArgError", message: "Invalid arguments", details: nil))
+        }
+        return
+      }
+      url.stopAccessingSecurityScopedResource()
       result(nil)
       
     default:
