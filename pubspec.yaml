@@ -1,6 +1,6 @@
 name: accessing_security_scoped_resource
 description: Call `startAccessingSecurityScopedResource` and `stopAccessingSecurityScopedResource` in Flutter.
-version: 0.0.3
+version: 1.0.0
 homepage: https://github.com/flutter-cavalry/accessing_security_scoped_resource
 
 environment:
