@@ -29,16 +29,15 @@ class MethodChannelAccessingSecurityScopedResource
   }
 
   @override
-  Future<bool> startAccessingSecurityScopedResourceWithURL(Uri url) async {
+  Future<bool> startAccessingSecurityScopedResourceWithURL(String url) async {
     return (await methodChannel.invokeMethod<bool>(
-            'startAccessingSecurityScopedResourceWithURL',
-            {'url': url.toString()})) ??
+            'startAccessingSecurityScopedResourceWithURL', {'url': url})) ??
         false;
   }
 
   @override
-  Future<void> stopAccessingSecurityScopedResourceWithURL(Uri url) async {
+  Future<void> stopAccessingSecurityScopedResourceWithURL(String url) async {
     await methodChannel.invokeMethod<bool>(
-        'stopAccessingSecurityScopedResourceWithURL', {'url': url.toString()});
+        'stopAccessingSecurityScopedResourceWithURL', {'url': url});
   }
 }

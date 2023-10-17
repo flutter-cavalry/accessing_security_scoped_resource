@@ -1,13 +1,23 @@
-import Cocoa
+import Foundation
+
+#if os(iOS)
+import Flutter
+#elseif os(macOS)
 import FlutterMacOS
+#endif
 
 public class AccessingSecurityScopedResourcePlugin: NSObject, FlutterPlugin {
   public static func register(with registrar: FlutterPluginRegistrar) {
-    let channel = FlutterMethodChannel(name: "accessing_security_scoped_resource", binaryMessenger: registrar.messenger)
+#if os(iOS)
+    let binaryMessenger = registrar.messenger()
+#elseif os(macOS)
+    let binaryMessenger = registrar.messenger
+#endif
+    let channel = FlutterMethodChannel(name: "accessing_security_scoped_resource", binaryMessenger: binaryMessenger)
     let instance = AccessingSecurityScopedResourcePlugin()
     registrar.addMethodCallDelegate(instance, channel: channel)
   }
-
+  
   public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
     guard let args = call.arguments as? Dictionary<String, Any> else {
       DispatchQueue.main.async {

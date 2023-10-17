@@ -13,12 +13,12 @@ class AccessingSecurityScopedResource {
         .stopAccessingSecurityScopedResourceWithFilePath(filePath);
   }
 
-  Future<bool> startAccessingSecurityScopedResourceWithURL(Uri url) async {
+  Future<bool> startAccessingSecurityScopedResourceWithURL(String url) async {
     return AccessingSecurityScopedResourcePlatform.instance
         .startAccessingSecurityScopedResourceWithURL(url);
   }
 
-  Future<void> stopAccessingSecurityScopedResourceWithURL(Uri url) async {
+  Future<void> stopAccessingSecurityScopedResourceWithURL(String url) async {
     return AccessingSecurityScopedResourcePlatform.instance
         .stopAccessingSecurityScopedResourceWithURL(url);
   }

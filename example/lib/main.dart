@@ -2,7 +2,6 @@ import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 
-import 'package:flutter/services.dart';
 import 'package:accessing_security_scoped_resource/accessing_security_scoped_resource.dart';
 
 void main() {
@@ -93,7 +92,8 @@ class _MyAppState extends State<MyApp> {
       return;
     }
     final hasAccess = await _accessingSecurityScopedResourcePlugin
-        .startAccessingSecurityScopedResourceWithURL(Uri.directory(_dir!));
+        .startAccessingSecurityScopedResourceWithURL(
+            Uri.directory(_dir!).toString());
     setState(() {
       _output = 'Has access: $hasAccess';
     });
@@ -104,7 +104,8 @@ class _MyAppState extends State<MyApp> {
       return;
     }
     _accessingSecurityScopedResourcePlugin
-        .stopAccessingSecurityScopedResourceWithURL(Uri.directory(_dir!));
+        .stopAccessingSecurityScopedResourceWithURL(
+            Uri.directory(_dir!).toString());
     setState(() {
       _output = '';
     });
