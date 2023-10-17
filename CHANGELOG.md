@@ -1,3 +1,7 @@
+## 2.0.0
+
+- Migrated to shared codebase.
+
 ## 1.0.0
 
 - Add URL-based APIs.
