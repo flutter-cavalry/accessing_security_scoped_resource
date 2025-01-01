@@ -1,3 +1,7 @@
+## 3.0.0
+
+- Add Swift Package Manager support.
+
 ## 2.0.0
 
 - Migrated to shared codebase.
