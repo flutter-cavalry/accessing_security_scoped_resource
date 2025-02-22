@@ -1,3 +1,7 @@
+## 3.1.0
+
+- Add `AppleScopedResource` class.
+
 ## 3.0.0
 
 - Add Swift Package Manager support.
