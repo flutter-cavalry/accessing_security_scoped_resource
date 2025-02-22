@@ -393,7 +393,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.flutter-cavalry.accessingSecurityScopedResourceExample.RunnerTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.accessingSecurityScopedResourceExample.RunnerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/accessing_security_scoped_resource_example.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/accessing_security_scoped_resource_example";
@@ -407,7 +407,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.flutter-cavalry.accessingSecurityScopedResourceExample.RunnerTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.accessingSecurityScopedResourceExample.RunnerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/accessing_security_scoped_resource_example.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/accessing_security_scoped_resource_example";
@@ -421,7 +421,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.flutter-cavalry.accessingSecurityScopedResourceExample.RunnerTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.accessingSecurityScopedResourceExample.RunnerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/accessing_security_scoped_resource_example.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/accessing_security_scoped_resource_example";

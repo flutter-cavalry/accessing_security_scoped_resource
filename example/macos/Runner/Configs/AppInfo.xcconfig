@@ -8,7 +8,7 @@
 PRODUCT_NAME = accessing_security_scoped_resource_example
 
 // The application's bundle identifier
-PRODUCT_BUNDLE_IDENTIFIER = com.flutter-cavalry.accessingSecurityScopedResourceExample
+PRODUCT_BUNDLE_IDENTIFIER = com.example.accessingSecurityScopedResourceExample
 
 // The copyright displayed in application information
-PRODUCT_COPYRIGHT = Copyright © 2025 com.flutter-cavalry. All rights reserved.
+PRODUCT_COPYRIGHT = Copyright © 2025 com.example. All rights reserved.

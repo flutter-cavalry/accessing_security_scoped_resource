@@ -38,18 +38,11 @@ class AppleScopedResource {
 
   /// Request access to the security scoped resource.
   /// Throws [BFNoPermissionExp] if the access is denied.
-  Future<void> requestAccess() async {
-    // No need to request access if already granted.
-    if (_granted) {
-      return;
-    }
+  Future<bool> requestAccess() async {
     _granted = isFileUrl
         ? await _plugin.startAccessingSecurityScopedResourceWithFilePath(url)
         : await _plugin.startAccessingSecurityScopedResourceWithURL(url);
-    if (!_granted) {
-      throw Exception(
-          'No permission to access the security scoped resource: $url');
-    }
+    return _granted;
   }
 
   /// Release the access to the security scoped resource.
@@ -65,11 +58,15 @@ class AppleScopedResource {
     }
   }
 
-  /// Request access to the security scoped resource and run the action.
-  Future<void> requestAccessWithAction(Future<void> Function() action) async {
+  /// Request access to the security scoped resource and run the action. This also releases the access after the action is done.
+  Future<bool> useAccess(Future<void> Function() action) async {
     await requestAccess();
     try {
-      await action();
+      if (_granted) {
+        await action();
+        return true;
+      }
+      return false;
     } finally {
       await release();
     }
