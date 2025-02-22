@@ -30,16 +30,16 @@ class AppleScopedResource {
   bool _granted = false;
 
   final String url;
-  final bool isFileUrl;
+  final bool isFilePath;
 
   bool get granted => _granted;
 
-  AppleScopedResource(this.url, {this.isFileUrl = false});
+  AppleScopedResource(this.url, {this.isFilePath = false});
 
   /// Request access to the security scoped resource.
   /// Throws [BFNoPermissionExp] if the access is denied.
   Future<bool> requestAccess() async {
-    _granted = isFileUrl
+    _granted = isFilePath
         ? await _plugin.startAccessingSecurityScopedResourceWithFilePath(url)
         : await _plugin.startAccessingSecurityScopedResourceWithURL(url);
     return _granted;
@@ -49,7 +49,7 @@ class AppleScopedResource {
   Future<void> release() async {
     // Release previous one if needed.
     if (_granted) {
-      if (isFileUrl) {
+      if (isFilePath) {
         await _plugin.stopAccessingSecurityScopedResourceWithFilePath(url);
       } else {
         await _plugin.stopAccessingSecurityScopedResourceWithURL(url);

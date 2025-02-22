@@ -1,3 +1,7 @@
+## 3.2.0
+
+- Rename `AppleScopedResource.isFileUrl` to `isFilePath`.
+
 ## 3.1.0
 
 - Add `AppleScopedResource` class.
