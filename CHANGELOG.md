@@ -1,3 +1,7 @@
+## 3.3.0
+
+- `requestAccess` no longer returns permission result.
+
 ## 3.2.0
 
 - Rename `AppleScopedResource.isFileUrl` to `isFilePath`.

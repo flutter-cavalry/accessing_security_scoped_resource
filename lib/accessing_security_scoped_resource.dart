@@ -37,12 +37,12 @@ class AppleScopedResource {
   AppleScopedResource(this.url, {this.isFilePath = false});
 
   /// Request access to the security scoped resource.
-  /// Throws [BFNoPermissionExp] if the access is denied.
-  Future<bool> requestAccess() async {
+  /// This will update [granted].
+  /// Note: some resources may not require access and [granted] may be false.
+  Future<void> requestAccess() async {
     _granted = isFilePath
         ? await _plugin.startAccessingSecurityScopedResourceWithFilePath(url)
         : await _plugin.startAccessingSecurityScopedResourceWithURL(url);
-    return _granted;
   }
 
   /// Release the access to the security scoped resource.
