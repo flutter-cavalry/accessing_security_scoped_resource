@@ -71,4 +71,14 @@ class AppleScopedResource {
       await release();
     }
   }
+
+  /// Unlike [useAccess], this will always call the action even if the access is not granted.
+  Future<void> tryAccess(Future<void> Function(bool granted) action) async {
+    await requestAccess();
+    try {
+      await action(_granted);
+    } finally {
+      await release();
+    }
+  }
 }

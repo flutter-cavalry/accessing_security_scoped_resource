@@ -1,3 +1,7 @@
+## 3.4.0
+
+- Add `tryAccess`.
+
 ## 3.3.0
 
 - `requestAccess` no longer returns permission result.
